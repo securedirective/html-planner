@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Calibri;
+  font-size: 10pt;
+}
+
+.page-with-bleed {
+  width: 6in;
+  height: 9in;
+  padding: 0.25in;
+}
+
+.page-inside-bleed {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.header {
+  background-color: lightyellow;
+  height: 0.5in;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.center {
+  /* background-color: lightblue; */
+  flex: 1 1;
+}
+
+.footer {
+  background-color: lightgreen;
+  height: 0.5in;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table td,
+table th {
+  border: 1px solid black;
+  vertical-align: top;
+}
+
+.weekday-cell,
+.weekend-cell {
+  height: 2in;
+}
+
+.weekday-cell {
+  width: 3.5in;
+}
+.weekend-cell {
+  width: 1.75in;
+}
+.other-cell {
+  width: 2in;
+}
+
+
+
+
+
+@media print {
+  .page-with-bleed {
+    page-break-after: always;
+  }
+}
+
+@media not print {
+  body {
+    max-width: 17in;
+    background-image:
+      linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+      linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+      linear-gradient(45deg, #f0f0f0 25%, #fff 25%);
+    background-size:20px 20px;
+    background-position: 0 0, 0 0, -10px -10px, 10px 10px;
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .page-container {
+    border: 2px solid grey;
+    background-color: silver;
+    margin-bottom: 0.25in;
+  }
+
+  .page-with-bleed {
+    background-color: #f3fff8;
+  }
+
+  .page-inside-bleed {
+    background-color: white;
+  }
+}

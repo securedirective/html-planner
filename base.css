@@ -5,7 +5,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: Calibri;
+  font-family: Calibri, sans-serif;
   font-size: 10pt;
 }
 table {
@@ -18,7 +18,14 @@ table th {
   padding: 0;
 }
 
+
+
+
+
 /* OVERALL LAYOUT */
+.templates {
+  display: none;
+}
 .page-with-bleed {
   width: 6in;
   height: 9in;
@@ -50,6 +57,8 @@ table th {
 }
 .footer {
   height: 0.2in;
+  font-style: italic;
+  font-size: 0.9em;
 }
 .page:nth-child(even) .footer {
   text-align: right;
@@ -57,6 +66,10 @@ table th {
 .vertical-expander {
     flex: 1 1;
 }
+
+
+
+
 
 /* PRINT */
 @media print {
@@ -66,14 +79,16 @@ table th {
 }
 @media not print {
   body {
-    max-width: 17in;
     background-image:
       linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
       linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
       linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
-      linear-gradient(45deg, #f0f0f0 25%, #fff 25%);
+      linear-gradient(45deg, #f0f0f0 25%, #ffffff 25%);
     background-size:20px 20px;
     background-position: 0 0, 0 0, -10px -10px, 10px 10px;
+  }
+  .page-container {
+    max-width: 17in;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -85,9 +100,6 @@ table th {
   .page-with-bleed {
     background-color: white;
   }
-  .page-inside-bleed {
-    /* background-color: white; */
-  }
 }
 
 /* STYLES COMMON TO ALL PAGES */
@@ -95,13 +107,11 @@ table th {
   font-size: 2em;
   font-weight: bold;
 }
-
-
-
-
-
-
-
+.dot-bg {
+  background-image: url(grid16.png);
+  background-size: 1in 1in;
+  image-rendering: pixelated;
+}
 
 
 
@@ -114,7 +124,6 @@ table th {
 .month-spread .header-row {
   height: calc((1in / 6) * 2);
   font-size: 1.2em;
-  /* background-color: yellow; */
 }
 .month-spread .header-row th {
   vertical-align: middle;
@@ -124,16 +133,11 @@ table th {
 }
 .month-spread .day-row {
   height: calc(((1in / 6) * 4) - 1px);
-  /* background-color: lightgreen; */
 }
 .month-spread .day-cell {
   border: 1px solid black;
   font-size: 1.1em;
   padding: 0.03in;
-  /* Grid background */
-  background-image: url(grid16.png);
-  background-size: 1in 1in;
-  image-rendering: pixelated;
 }
 .month-spread .day-cell .day-num {
   background-color: white;
@@ -151,11 +155,6 @@ table th {
 
 
 
-
-
-
-
-
 /* WEEK SPREAD */
 .week-spread .day-row {
   height: calc(((1in / 6) * 12) - 1px);
@@ -166,10 +165,6 @@ table th {
 .week-spread .day-cell {
   width: calc(((1in / 6) * 24) - 1px);
   border: 1px solid black;
-  /* Grid background */
-  background-image: url(grid16.png);
-  background-size: 1in 1in;
-  image-rendering: pixelated;
 }
 .week-spread .cell-header {
   font-size: 1.2em;
@@ -178,6 +173,7 @@ table th {
   display: flex;
   flex-direction: row;
   padding: 0 0.2em;
+  background-color: white;
 }
 .week-spread .day-cell .cell-header {
   background-color: #c0c0c0;
@@ -186,7 +182,7 @@ table th {
   background-color: #e9e9e9;
 }
 .week-spread .day-cell .cell-header .day-num {
-  background-color: #555;
+  background-color: #555555;
   border-radius: 50%;
   width: 0.25in;
   text-align: center;
@@ -201,31 +197,31 @@ table th {
 }
 .week-spread .day-cell .cell-content {
   display: flex;
-  /* flex-direction: row; */
   font-size: 0.7em;
   font-style: italic;
   text-align: center;
-  height: calc((1in / 6) * 3);
+  height: calc((1in / 6) * 9.5);
 }
 .week-spread .day-cell .cell-content > * {
   flex: 1;
 }
 .week-spread .day-cell .cell-content .vertical-sep {
-  min-width: 1px;
+  min-width: 3px;
   flex: 0;
-  background: linear-gradient(to bottom, #000, #fff);
+  background: linear-gradient(to bottom, #c0c0c0 0%, #ffffff 50%);
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 .week-spread .goals-cell {
   width: calc((1in / 6) * 8);
   border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
 }
 .week-spread .blockers-cell {
-  border-top: 1px dashed black;
-}
-.week-spread .lessons-cell {
   width: calc((1in / 6) * 8);
   border-top: 1px dashed black;
 }
-.week-spread .lessons-cell {
+.week-spread .moments-cell {
   border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
 }

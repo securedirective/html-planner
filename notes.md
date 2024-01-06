@@ -1,8 +1,36 @@
-2-year view
-Month 1/2
-Month 2/2
-Habit Tracker
-Freeform notes
-Week 1/2
-Week 2/2
-Important dates next year
+If found page
+
+Index of notes in freeform pages
+Dot grid page
+
+Repeat 12 times...
+  Month spread [A]
+  Month spread [B]
+
+  Habit tracker
+  Dot grid page
+
+  Dot grid page
+  Dot grid page
+
+  Repeat 5 times...
+    Week spread [A]
+    Week spread [B]
+
+  Week spread, generic [A]
+  Week spread, generic [B]
+
+2-year view [A]
+2-year view [B]
+
+Important dates next year [A]
+Important dates next year [B]
+
+
+
+
+Total: 223pg
+  Front: 3pg
+  Months: 216pg
+    Each month: 6 + (2*5) + 2 = 18pg
+  Back: 4pg

@@ -34,3 +34,8 @@ Total: 223pg
   Months: 216pg
     Each month: 6 + (2*5) + 2 = 18pg
   Back: 4pg
+
+
+
+
+How best to display when a week is 3 days Jan and 4 days Feb

@@ -76,6 +76,12 @@ table th {
   .page-with-bleed {
     page-break-after: always;
   }
+  .gap-page {
+    display: none;
+  }
+  .gap-page .page-with-bleed {
+    page-break-after: initial;
+  }
 }
 @media not print {
   body {
@@ -100,7 +106,14 @@ table th {
   .page-with-bleed {
     background-color: white;
   }
+  .gap-page {
+    visibility: hidden;
+  }
 }
+
+
+
+
 
 /* STYLES COMMON TO ALL PAGES */
 .header {
@@ -111,6 +124,37 @@ table th {
   background-image: url(grid16.png);
   background-size: 1in 1in;
   image-rendering: pixelated;
+}
+
+
+
+
+
+/* GAP PAGE */
+.gap-page {
+  padding: 0;
+  margin: 0;
+}
+.gap-page .page-with-bleed {
+  height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+
+/* IF FOUND */
+.if-found-page .belongs-to ul {
+  margin: 0;
+  padding: 0 0 0 0.125in;
+}
+.if-found-page .belongs-to li {
+  margin-bottom: 0.25in;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 
@@ -133,6 +177,9 @@ table th {
 }
 .month-spread .day-row {
   height: calc(((1in / 6) * 4) - 1px);
+}
+.month-spread .day-row.smaller {
+  height: calc(((1in / 6) * 3) - 1px);
 }
 .month-spread .day-cell {
   border: 1px solid black;

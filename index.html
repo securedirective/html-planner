@@ -7,10 +7,30 @@
 </head>
 <body>
   <div class="templates">
-    <div id="monthSpreadA" class="page month-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">
-        {{month.name}} {{month.year}}
+    <div id="gapPage" class="page gap-page"><div class="page-with-bleed"><div class="page-inside-bleed">
+    </div></div></div>
+
+    <div id="ifFoundPage" class="page if-found-page"><div class="page-with-bleed"><div class="page-inside-bleed">
+      <div class="belongs-to">
+        This planner belongs to...
+        <ul>
+          <li>Name:</li>
+          <li>Email:</li>
+          <li>Phone:</li>
+        </ul>
       </div>
+      <div class="vertical-expander"></div>
+      <div class="footer">Page {{pageNum}}</div>
+    </div></div></div>
+
+    <div id="gridPage" class="page grid-page"><div class="page-with-bleed"><div class="page-inside-bleed">
+      <div class="header">Notes</div>
+      <div class="vertical-expander dot-bg"></div>
+      <div class="footer">Page {{pageNum}}</div>
+    </div></div></div>
+
+    <div id="monthSpreadA" class="page month-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
+      <div class="header">{{month.title}}</div>
       <div>
         <table>
           <tr class="header-row">
@@ -18,55 +38,14 @@
             <th class="day-col">Tue</th>
             <th class="day-col">Wed</th>
           </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[0].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[0].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[1].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[1].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[2].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[2].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[7].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[7].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[8].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[8].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[9].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[9].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[14].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[14].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[15].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[15].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[16].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[16].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[21].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[21].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[22].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[22].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[23].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[23].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[28].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[28].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[29].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[29].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[30].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[30].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-          </tr>
+          <!-- The remaining rows are added here via javascript -->
         </table>
       </div>
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
-    <tr id="monthRowA" class="day-row">
-      <td class="day-cell dot-bg{{month.dates[0].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[0].getDate()}}</span></td>
-      <td class="day-cell dot-bg{{month.dates[1].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[1].getDate()}}</span></td>
-      <td class="day-cell dot-bg{{month.dates[2].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[2].getDate()}}</span></td>
-    </tr>
     <div id="monthSpreadB" class="page month-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">
-
-      </div>
+      <div class="header"></div>
       <div>
         <table>
           <tr class="header-row">
@@ -74,60 +53,19 @@
             <th class="day-col">Fri</th>
             <th class="day-col">Sat/Sun</th>
           </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[3].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[3].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[4].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[4].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[5].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[5].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[6].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[6].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[10].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[10].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[11].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[11].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[12].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[12].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[13].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[13].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[17].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[17].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[18].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[18].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[19].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[19].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[20].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[20].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[24].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[24].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[25].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[25].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[26].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[26].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[27].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[27].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[31].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[31].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[32].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="2"><span class="day-num">{{month.dates[32].getDate()}}</span></td>
-            <td class="day-cell dot-bg{{month.dates[33].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[33].getDate()}}</span></td>
-          </tr>
-          <tr class="day-row">
-            <td class="day-cell dot-bg{{month.dates[34].getMonth() == month.num ? ' extra-day' : ''}}" rowspan="1"><span class="day-num">{{month.dates[34].getDate()}}</span></td>
-          </tr>
+          <!-- The remaining rows are added here via javascript -->
         </table>
       </div>
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
     <div id="weekSpreadA" class="page week-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">
-        {{month.name}} {{month.year}}
-      </div>
+      <div class="header">{{week.title}}</div>
       <table>
         <tr class="day-row">
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">1</span>
+              <span class="day-num">{{week.dates[0].getDate()}}</span>
               <span class="day-of-week">Mon</span>
             </div>
             <div class="cell-content">
@@ -143,7 +81,7 @@
         <tr class="day-row">
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">2</span>
+              <span class="day-num">{{week.dates[1].getDate()}}</span>
               <span class="day-of-week">Tue</span>
             </div>
             <div class="cell-content">
@@ -156,7 +94,7 @@
         <tr class="day-row">
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">31</span>
+              <span class="day-num">{{week.dates[2].getDate()}}</span>
               <span class="day-of-week">Wed</span>
             </div>
             <div class="cell-content">
@@ -171,9 +109,7 @@
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
     <div id="weekSpreadB" class="page week-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">
-        Week {{week.num}}
-      </div>
+      <div class="header">Week {{week.num}}</div>
       <table>
         <tr class="day-row">
           <td class="blockers-cell dot-bg">
@@ -181,7 +117,7 @@
           </td>
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">4</span>
+              <span class="day-num">{{week.dates[3].getDate()}}</span>
               <span class="day-of-week">Thu</span>
             </div>
             <div class="cell-content">
@@ -197,7 +133,7 @@
           </td>
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">5</span>
+              <span class="day-num">{{week.dates[4].getDate()}}</span>
               <span class="day-of-week">Fri</span>
             </div>
             <div class="cell-content">
@@ -210,7 +146,7 @@
         <tr class="day-row half-height">
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">6</span>
+              <span class="day-num">{{week.dates[5].getDate()}}</span>
               <span class="day-of-week">Sat</span>
             </div>
           </td>
@@ -218,7 +154,7 @@
         <tr class="day-row half-height">
           <td class="day-cell dot-bg">
             <div class="cell-header">
-              <span class="day-num">7</span>
+              <span class="day-num">{{week.dates[6].getDate()}}</span>
               <span class="day-of-week">Sun</span>
             </div>
           </td>
@@ -227,20 +163,37 @@
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
+    <div id="indexPage" class="page index-page"><div class="page-with-bleed"><div class="page-inside-bleed">
+      <div class="vertical-expander">Index...</div>
+      <div class="footer">Page {{pageNum}}</div>
+    </div></div></div>
   </div>
 
   <div id="pageContainer" class="page-container"></div>
 
   <script>
-  var pageContainer = document.getElementById('pageContainer');
-  var pageNum = 1;
-  const MONDAY = 1;
-  const SUNDAY = 7;
+  const MON = 1;
+  const TUE = 2;
+  const WED = 3;
+  const THU = 4;
+  const FRI = 5;
+  const SAT = 6;
+  const SUN = 7;
+  const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const MONTH_NAMES_ABBREV = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  function getDayOfWeek(dt) {
+  var pageContainer = document.getElementById('pageContainer');
+  var pageNum = 1
+  var monthSpreads = [];
+
+  function formatDate(date) {
+    return `${date.getMonth()+1}/${date.getDate()}`;
+  }
+
+  function getDayOfWeek(date) {
     // Returns Mon=1, Tue=2, ... Sat=6, Sun=7 (this differs from default
     // Javascript that uses Sun=0, Mon=1, ...)
-    var dayOfWeek = dt.getDay();
+    var dayOfWeek = date.getDay();
     if (dayOfWeek < 1) dayOfWeek += 7;
     return dayOfWeek;
   }
@@ -256,23 +209,32 @@
   function shiftBackToMonday(date) {
     // Returns the date if it's Monday, else shifted back to the nearest Monday
     var dayOfWeek = getDayOfWeek(date);
-    return dayOfWeek == MONDAY ? new Date(date) : offsetDays(date, MONDAY - dayOfWeek);
+    return dayOfWeek == MON ? new Date(date) : offsetDays(date, MON - dayOfWeek);
   }
 
   function shiftForwardToSunday(date) {
     // Returns the date if it's Sunday, else shifted forward to the nearest Sunday
     var dayOfWeek = getDayOfWeek(date);
-    return dayOfWeek == SUNDAY ? new Date(date) : offsetDays(date, SUNDAY - dayOfWeek);
+    return dayOfWeek == SUN ? new Date(date) : offsetDays(date, SUN - dayOfWeek);
   }
+
+  // function isDate(v) {
+  //   return (!!v && typeof v.getMonth === 'function');
+  // }
 
   function getDateRange(start, end) {
     var dates = [];
     var offset = 0;
+    // console.log(start, end);
+    // if (!(isDate(start) && isDate(start))) throw new Error('abc');
     while (true) {
       var date = offsetDays(start, offset);
+      // console.log(date);
       if (date > end) break;
       dates.push(date);
       offset++;
+      // Fail safe
+      if (offset > 1000) throw new Error('Too many iterations');
     }
     return dates;
   }
@@ -304,73 +266,157 @@
     }
   }
 
-  function cloneWithContext(templateElem) {
+  function cloneWithContext(templateId) {
+    var templateElem = document.getElementById(templateId);
     var newElem = templateElem.cloneNode(true);
+    newElem.removeAttribute('id');
     processPlaceholders(newElem);
     return newElem;
   }
 
   function addPage(page) {
-    pageContainer.appendChild(page);
     pageNum++;
+    pageContainer.appendChild(page);
   }
 
-  var yearNum = 2010;
-  var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  var months = [];
-
-  for (var monthNum=1; monthNum<=12; monthNum++) {
-    firstDay = new Date(yearNum, monthNum-1, 1);
-    lastDay = offsetDays(new Date(yearNum, monthNum, 1), -1);
-    var month = {
-      num: monthNum,
-      year: yearNum,
-      name: monthNames[monthNum-1],
-      startDate: shiftBackToMonday(firstDay),
-      endDate: shiftForwardToSunday(lastDay),
-      weeks: [],
-    };
-    month.dates = getDateRange(month.startDate, month.endDate);
-    months.push(month);
+  function addGap() {
+    pageContainer.appendChild(cloneWithContext('gapPage'));
   }
 
-  var weeks = [];
-  var startOfWeek = months[0].startDate;
-  var weekNum = 1;
-  var insertIntoMonth = 0;
-  while (true) {
-    week = {
-      num: weekNum,
-      startDate: startOfWeek,
-      endDate: offsetDays(startOfWeek, 6),
-      days: [],
-    };
-    week.dates = getDateRange(week.startDate, week.endDate);
-    weeks.push(week);
-    if (months[insertIntoMonth]) {
-      if (week.startDate > months[insertIntoMonth].endDate) insertIntoMonth++;
-      if (months[insertIntoMonth]) {
-        months[insertIntoMonth].weeks.push(week);
+  function createMonthAndWeekSpreads(startingYearNum, monthCount) {
+    // Create 18 months
+    for (var x=0; x<monthCount; x++) {
+      var yearNum = startingYearNum + Math.trunc(x / 12);
+      var monthNum = x % 12;
+      var firstDate = new Date(yearNum, monthNum, 1);
+      var lastDate = offsetDays(new Date(yearNum, monthNum+1, 1), -1);
+      var month = {
+        num: monthNum,
+        title: `${MONTH_NAMES[monthNum]} ${yearNum}`,
+        firstDate: firstDate,
+        lastDate: lastDate,
+        firstDisplayedDate: shiftBackToMonday(firstDate),
+        lastDisplayedDate: shiftForwardToSunday(lastDate),
+        weekRowsOnOverview: [],
+        weekSpreads: x<12 ? [] : null,
+      };
+      monthSpreads.push(month);
+    }
+
+    // Calculate all weeks that overlap the total date range
+    var weeks = [];
+    var firstDate = monthSpreads[0].firstDisplayedDate;
+    var weekNum = 1;
+    while (true) {
+      var lastDate = offsetDays(firstDate, 6);
+      var firstDateMonth = firstDate.getMonth();
+      var lastDateMonth = lastDate.getMonth();
+      var title = firstDateMonth==lastDateMonth ? MONTH_NAMES_ABBREV[firstDateMonth] : `${MONTH_NAMES_ABBREV[firstDateMonth]} / ${MONTH_NAMES_ABBREV[lastDateMonth]}`;
+      week = {
+        title: title,
+        num: weekNum,
+        firstDate: firstDate,
+        lastDate: lastDate,
+        dates: getDateRange(firstDate, lastDate),
+      };
+      weeks.push(week);
+      // Prep for next iteration
+      weekNum++;
+      firstDate = offsetDays(firstDate, 7);
+      if (firstDate > monthSpreads[monthSpreads.length-1].lastDisplayedDate) break;
+    }
+
+    // Create week records and link them to the appropriate months, without any duplicates
+    var insertIntoMonth1 = 0;
+    for (var week of weeks) {
+      if (week.firstDate > monthSpreads[insertIntoMonth1].lastDisplayedDate) insertIntoMonth1++;
+      if (monthSpreads[insertIntoMonth1] && monthSpreads[insertIntoMonth1].weekSpreads!==null) {
+        monthSpreads[insertIntoMonth1].weekSpreads.push(week);
       }
     }
-    // Prep for next iteration
-    weekNum++;
-    startOfWeek = offsetDays(startOfWeek, 7);
-    if (startOfWeek > months[11].endDate) break;
+
+    // Now add those same week records to the months while allowing duplicates,
+    // for the purpose of rendering the month spreads
+    var insertIntoMonth2 = 0;
+    for (var week of weeks) {
+      if (week.firstDate > monthSpreads[insertIntoMonth2].lastDate) {
+        insertIntoMonth2++;
+        if (insertIntoMonth2 >= monthCount) break;
+      }
+      monthSpreads[insertIntoMonth2].weekRowsOnOverview.push(week);
+      if (week.lastDate > monthSpreads[insertIntoMonth2].lastDate) {
+        insertIntoMonth2++;
+        if (insertIntoMonth2 >= monthCount) break;
+        monthSpreads[insertIntoMonth2].weekRowsOnOverview.push(week);
+      }
+    }
   }
 
-  // console.log(months);
-  // console.log(weeks);
+  createMonthAndWeekSpreads(2024, 15);
 
-  for (var month of months) {
-    addPage(cloneWithContext(document.getElementById('monthSpreadA')));
-    addPage(cloneWithContext(document.getElementById('monthSpreadB')));
+  // Debug stuff
+  // for (var key of ['weekRowsOnOverview', 'weekSpreads']) {
+  //   console.log(key);
+  //   var lastWeekNum = 0;
+  //   for (var month of months) {
+  //     for (var week of month[key]) {
+  //       var ast;
+  //       if (week.num == (lastWeekNum+1)) {
+  //         ast = 'Next';
+  //       } else if (week.num == lastWeekNum) {
+  //         ast = 'DUPLICATE';
+  //       } else {
+  //         throw new Error(`Unexpected shift: ${lastWeekNum} -> ${week.num}`);
+  //       }
+  //       console.log(`Month: ${formatDate(month.firstDate)} to ${formatDate(month.lastDate)}                Week ${week.num} (${ast}): ${formatDate(week.firstDate)} to ${formatDate(week.lastDate)}`);
+  //       lastWeekNum = week.num;
+  //     }
+  //   }
+  // }
 
-    // for (var week of month.weeks) {
-    //   addPage(cloneWithContext(document.getElementById('weekSpreadA')));
-    //   addPage(cloneWithContext(document.getElementById('weekSpreadB')));
-    // }
+  // Generate the final output from templates
+  addGap();
+  addPage(cloneWithContext('ifFoundPage'));
+  for (var month of monthSpreads) {
+    var page, table, tr, td;
+    for (var sideA of [true, false]) {
+      page = cloneWithContext(sideA ? 'monthSpreadA' : 'monthSpreadB');
+      tbody = page.getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
+      for (var week of month.weekRowsOnOverview) {
+        tr1 = document.createElement('tr');
+        tr1.className = 'day-row';
+        tr2 = document.createElement('tr');
+        tr2.className = 'day-row';
+        if (month.weekRowsOnOverview.length > 5) {
+          tr1.classList.add('smaller');
+          tr2.classList.add('smaller');
+        }
+        for (var x = (sideA ? MON : THU); x <= (sideA ? WED : SUN); x++) {
+          var date = week.dates[x-1];
+          td = document.createElement('td');
+          td.className = 'day-cell dot-bg';
+          td.rowSpan = (x == SAT || x == SUN) ? '1' : '2';
+          if (date.getMonth() != month.num) td.classList.add('extra-day');
+          td.innerHTML = `<span class="day-num">${date.getDate()}</span>`
+          trToUse = x == SUN ? tr2 : tr1;
+          trToUse.appendChild(td);
+        }
+        tbody.appendChild(tr1);
+        tbody.appendChild(tr2);
+      }
+      addPage(page);
+    }
+    if (month.weekSpreads!==null) {
+      for (var week of month.weekSpreads) {
+        addPage(cloneWithContext('weekSpreadA'));
+        addPage(cloneWithContext('weekSpreadB'));
+      }
+      addPage(cloneWithContext('gridPage'));
+      addPage(cloneWithContext('gridPage'));
+    }
   }
+  addPage(cloneWithContext('indexPage'));
+  addGap();
   </script>
 </body>
 </html>

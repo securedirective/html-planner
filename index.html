@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <title>title</title>
+  <title>Planner</title>
   <link type="text/css" rel="stylesheet" href="base.css">
 </head>
 <body>
@@ -11,160 +11,194 @@
     </div></div></div>
 
     <div id="ifFoundPage" class="page if-found-page"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="belongs-to">
+      <div>
         This planner belongs to...
-        <ul>
-          <li>Name:</li>
-          <li>Email:</li>
-          <li>Phone:</li>
-        </ul>
+        <table class="belongs-to">
+          <tbody>
+            <tr><td class="header">Name:</td><td class="blank"></td></tr>
+            <tr><td class="header">Email:</td><td class="blank"></td></tr>
+            <tr><td class="header">Phone:</td><td class="blank"></td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="vertical-expander"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
 
     <div id="gridPage" class="page grid-page"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">Notes</div>
+      <div class="page-header">{{month.shortName}}</div>
+      <div class="vertical-expander dot-bg"></div>
+      <div class="footer">Page {{pageNum}}</div>
+    </div></div></div>
+
+    <div id="habitsPage" class="page habits-page"><div class="page-with-bleed"><div class="page-inside-bleed">
+      <div class="page-header">Notes</div>
+      <div>
+      <div class="wrapper">
+        <table class="habits-table">
+          <thead>
+            <tr><th><div class="title">Habit Tracker</div></th><!-- The remaining headers are added here via javascript --></tr>
+          </thead>
+          <tbody>
+            <!-- The remaining rows are added here via javascript -->
+          </tbody>
+        </table>
+      </div>
+      </div>
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
 
     <div id="monthSpreadA" class="page month-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">{{month.title}}</div>
+      <div class="page-header">{{month.title}}</div>
       <div>
-        <table>
-          <tr class="header-row">
-            <th class="day-col">Mon</th>
-            <th class="day-col">Tue</th>
-            <th class="day-col">Wed</th>
-          </tr>
-          <!-- The remaining rows are added here via javascript -->
+        <table class="month-table">
+          <thead>
+            <tr>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- The remaining rows are added here via javascript -->
+          </tbody>
         </table>
       </div>
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
+
     <div id="monthSpreadB" class="page month-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header"></div>
+      <div class="page-header"></div>
       <div>
-        <table>
-          <tr class="header-row">
-            <th class="day-col">Thu</th>
-            <th class="day-col">Fri</th>
-            <th class="day-col">Sat/Sun</th>
-          </tr>
-          <!-- The remaining rows are added here via javascript -->
+        <table class="month-table">
+          <thead>
+            <tr>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat/Sun</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- The remaining rows are added here via javascript -->
+          </tbody>
         </table>
       </div>
       <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
+
     <div id="weekSpreadA" class="page week-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">{{week.title}}</div>
-      <table>
-        <tr class="day-row">
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[0].getDate()}}</span>
-              <span class="day-of-week">Mon</span>
-            </div>
-            <div class="cell-content">
-              <div class="personal-col">Personal</div>
-              <div class="vertical-sep"></div>
-              <div class="work-col">Work</div>
-            </div>
-          </td>
-          <td class="goals-cell dot-bg" rowspan="3">
-            <div class="cell-header">Week goals</div>
-          </td>
-        </tr>
-        <tr class="day-row">
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[1].getDate()}}</span>
-              <span class="day-of-week">Tue</span>
-            </div>
-            <div class="cell-content">
-              <div class="personal-col">Personal</div>
-              <div class="vertical-sep"></div>
-              <div class="work-col">Work</div>
-            </div>
-          </td>
-        </tr>
-        <tr class="day-row">
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[2].getDate()}}</span>
-              <span class="day-of-week">Wed</span>
-            </div>
-            <div class="cell-content">
-              <div class="personal-col">Personal</div>
-              <div class="vertical-sep"></div>
-              <div class="work-col">Work</div>
-            </div>
-          </td>
-        </tr>
+      <div class="page-header">{{month.shortName}}</div>
+      <table class="week-table">
+        <tbody>
+          <tr>
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[0].getDate()}}</span>
+                <span class="day-of-week">Mon</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+              <div class="cell-content">
+                <div class="personal-col">Personal</div>
+                <div class="vertical-sep"></div>
+                <div class="work-col">Work</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[1].getDate()}}</span>
+                <span class="day-of-week">Tue</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+              <div class="cell-content">
+                <div class="personal-col">Personal</div>
+                <div class="vertical-sep"></div>
+                <div class="work-col">Work</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[2].getDate()}}</span>
+                <span class="day-of-week">Wed</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+              <div class="cell-content">
+                <div class="personal-col">Personal</div>
+                <div class="vertical-sep"></div>
+                <div class="work-col">Work</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
-      <div class="vertical-expander dot-bg"></div>
+      <div class="vertical-expander"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
+
     <div id="weekSpreadB" class="page week-spread"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="header">Week {{week.num}}</div>
-      <table>
-        <tr class="day-row">
-          <td class="blockers-cell dot-bg">
-            <div class="cell-header">Blockers</div>
-          </td>
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[3].getDate()}}</span>
-              <span class="day-of-week">Thu</span>
-            </div>
-            <div class="cell-content">
-              <div class="personal-col">Personal</div>
-              <div class="vertical-sep"></div>
-              <div class="work-col">Work</div>
-            </div>
-          </td>
-        </tr>
-        <tr class="day-row">
-          <td class="moments-cell dot-bg" rowspan="3">
-            <div class="cell-header">Moments</div>
-          </td>
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[4].getDate()}}</span>
-              <span class="day-of-week">Fri</span>
-            </div>
-            <div class="cell-content">
-              <div class="personal-col">Personal</div>
-              <div class="vertical-sep"></div>
-              <div class="work-col">Work</div>
-            </div>
-          </td>
-        </tr>
-        <tr class="day-row half-height">
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[5].getDate()}}</span>
-              <span class="day-of-week">Sat</span>
-            </div>
-          </td>
-        </tr>
-        <tr class="day-row half-height">
-          <td class="day-cell dot-bg">
-            <div class="cell-header">
-              <span class="day-num">{{week.dates[6].getDate()}}</span>
-              <span class="day-of-week">Sun</span>
-            </div>
-          </td>
-        </tr>
+      <div class="page-header">Week {{week.num}}</div>
+      <table class="week-table">
+        <tbody>
+          <tr>
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[3].getDate()}}</span>
+                <span class="day-of-week">Thu</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+              <div class="cell-content">
+                <div class="personal-col">Personal</div>
+                <div class="vertical-sep"></div>
+                <div class="work-col">Work</div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[4].getDate()}}</span>
+                <span class="day-of-week">Fri</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+              <div class="cell-content">
+                <div class="personal-col">Personal</div>
+                <div class="vertical-sep"></div>
+                <div class="work-col">Work</div>
+              </div>
+            </td>
+          </tr>
+          <tr class="weekend">
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[5].getDate()}}</span>
+                <span class="day-of-week">Sat</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+            </td>
+          </tr>
+          <tr class="weekend">
+            <td class="dot-bg">
+              <div class="cell-header">
+                <span class="day-num">{{week.dates[6].getDate()}}</span>
+                <span class="day-of-week">Sun</span>
+                <div class="who-is-where">K</div><div class="who-is-where">A</div><div class="who-is-where">C</div><div class="who-is-where">I</div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
-      <div class="vertical-expander dot-bg"></div>
+      <div class="vertical-expander"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
+
     <div id="indexPage" class="page index-page"><div class="page-with-bleed"><div class="page-inside-bleed">
-      <div class="vertical-expander">Index...</div>
+      <div class="vertical-expander dot-bg"></div>
       <div class="footer">Page {{pageNum}}</div>
     </div></div></div>
   </div>
@@ -284,17 +318,20 @@
   }
 
   function createMonthAndWeekSpreads(startingYearNum, monthCount) {
-    // Create 18 months
+    // Create months, including the extra ones past the end of the year
     for (var x=0; x<monthCount; x++) {
       var yearNum = startingYearNum + Math.trunc(x / 12);
       var monthNum = x % 12;
       var firstDate = new Date(yearNum, monthNum, 1);
-      var lastDate = offsetDays(new Date(yearNum, monthNum+1, 1), -1);
+      var lastDate = new Date(yearNum, monthNum+1, 0);
       var month = {
         num: monthNum,
         title: `${MONTH_NAMES[monthNum]} ${yearNum}`,
+        name: `${MONTH_NAMES[monthNum]}`,
+        shortName: `${MONTH_NAMES_ABBREV[monthNum]}`,
         firstDate: firstDate,
         lastDate: lastDate,
+        numDays: new Date(yearNum, monthNum + 1, 0).getDate(),
         firstDisplayedDate: shiftBackToMonday(firstDate),
         lastDisplayedDate: shiftForwardToSunday(lastDate),
         weekRowsOnOverview: [],
@@ -311,9 +348,7 @@
       var lastDate = offsetDays(firstDate, 6);
       var firstDateMonth = firstDate.getMonth();
       var lastDateMonth = lastDate.getMonth();
-      var title = firstDateMonth==lastDateMonth ? MONTH_NAMES_ABBREV[firstDateMonth] : `${MONTH_NAMES_ABBREV[firstDateMonth]} / ${MONTH_NAMES_ABBREV[lastDateMonth]}`;
       week = {
-        title: title,
         num: weekNum,
         firstDate: firstDate,
         lastDate: lastDate,
@@ -352,7 +387,7 @@
     }
   }
 
-  createMonthAndWeekSpreads(2024, 15);
+  createMonthAndWeekSpreads(2024, 18);
 
   // Debug stuff
   // for (var key of ['weekRowsOnOverview', 'weekSpreads']) {
@@ -378,15 +413,14 @@
   addGap();
   addPage(cloneWithContext('ifFoundPage'));
   for (var month of monthSpreads) {
-    var page, table, tr, td;
+    var page, table, tbody, tr, th, td;
     for (var sideA of [true, false]) {
       page = cloneWithContext(sideA ? 'monthSpreadA' : 'monthSpreadB');
-      tbody = page.getElementsByTagName('table')[0].getElementsByTagName('tbody')[0];
+      table = page.getElementsByTagName('table')[0];
+      tbody = table.getElementsByTagName('tbody')[0];
       for (var week of month.weekRowsOnOverview) {
         tr1 = document.createElement('tr');
-        tr1.className = 'day-row';
         tr2 = document.createElement('tr');
-        tr2.className = 'day-row';
         if (month.weekRowsOnOverview.length > 5) {
           tr1.classList.add('smaller');
           tr2.classList.add('smaller');
@@ -394,7 +428,7 @@
         for (var x = (sideA ? MON : THU); x <= (sideA ? WED : SUN); x++) {
           var date = week.dates[x-1];
           td = document.createElement('td');
-          td.className = 'day-cell dot-bg';
+          td.className = 'dot-bg';
           td.rowSpan = (x == SAT || x == SUN) ? '1' : '2';
           if (date.getMonth() != month.num) td.classList.add('extra-day');
           td.innerHTML = `<span class="day-num">${date.getDate()}</span>`
@@ -407,12 +441,32 @@
       addPage(page);
     }
     if (month.weekSpreads!==null) {
+      addPage(cloneWithContext('gridPage'));
+
+      page = cloneWithContext('habitsPage');
+      table = page.getElementsByTagName('table')[0];
+      tbody = table.getElementsByTagName('tbody')[0];
+      var theadTr = table.getElementsByTagName('thead')[0].children[0];
+      var habitCount = 4;
+      for (var y=0; y<habitCount; y++) {
+        theadTr.appendChild(document.createElement('td'));
+      }
+      for (var x=0; x<month.numDays; x++) {
+        tr = document.createElement('tr');
+        th = document.createElement('th');
+        th.innerHTML = x+1;
+        tr.appendChild(th);
+        for (var y=0; y<habitCount; y++) {
+          tr.appendChild(document.createElement('td'));
+        }
+        tbody.appendChild(tr);
+      }
+      addPage(page);
+
       for (var week of month.weekSpreads) {
         addPage(cloneWithContext('weekSpreadA'));
         addPage(cloneWithContext('weekSpreadB'));
       }
-      addPage(cloneWithContext('gridPage'));
-      addPage(cloneWithContext('gridPage'));
     }
   }
   addPage(cloneWithContext('indexPage'));

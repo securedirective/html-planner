@@ -29,13 +29,13 @@ table th {
 .page-with-bleed {
   width: 6in;
   height: 9in;
-  padding: 0.2in;
+  padding: 24px; /* 0.25in */
 }
 .page:nth-child(odd) .page-with-bleed {
-  padding-right: 0.5in;
+  padding-right: 71px; /* Exact measurement to align with the dot grid */
 }
 .page:nth-child(even) .page-with-bleed {
-  padding-left: 0.5in;
+  padding-left: 71px; /* Exact measurement to align with the dot grid */
 }
 .page-inside-bleed {
   /* This is 5.5in x 8.5in */
@@ -44,15 +44,17 @@ table th {
   flex-direction: column;
 }
 .page-header {
-  height: 0.4in;
+  height: calc(16px * 3);
+  background-color: white;
 }
 .page:nth-child(even) .page-header {
   text-align: right;
 }
 .footer {
-  height: 0.2in;
+  height: calc(16px * 1);
   font-style: italic;
   font-size: 0.9em;
+  /* background-color: white; */
 }
 .page:nth-child(even) .footer {
   text-align: right;
@@ -115,7 +117,7 @@ table th {
   font-weight: bold;
 }
 .dot-bg {
-  background-image: url(grid16.png);
+  background-image: url(grid16b.png);
   background-size: 1in 1in;
   image-rendering: pixelated;
 }
@@ -163,19 +165,20 @@ table th {
 
 /* HABITS PAGE */
 .habits-page .wrapper {
-  padding: 0.15in;
+  padding-right: 0.05in;
+  padding-bottom: 0.05in;
   position: absolute;
   background-color: white;
 }
 .habits-page .habits-table thead th {
-  height: 1.5in;
+  height: calc(16px * 10);
 }
 .habits-page .habits-table .title {
   transform: rotate(-90deg);
   translate: -64px 84px;
   white-space: nowrap;
   position: absolute;
-  width: 1.5in;
+  width: 140px;
   font-size: 1.2em;
   font-style: italic;
 }
@@ -186,11 +189,15 @@ table th {
 .habits-page .habits-table td {
   border: 1px solid black;
 }
+.habits-page .habits-table tr {
+  height: calc(16px * 1);
+}
 .habits-page .habits-table th {
-  width: 0.2in;
+  width: calc(16px * 1);
+  font-size: 0.8em;
 }
 .habits-page .habits-table td {
-  width: 0.3in;
+  width: calc(16px * 2);
 }
 
 /* MONTH SPREAD */
@@ -201,10 +208,10 @@ table th {
   margin-left: auto;
 }
 .month-spread .month-table thead th {
-  width: 1.75in;
+  width: calc(16px * 10);
 }
 .month-spread .month-table thead tr {
-  height: calc((1in / 6) * 2);
+  height: calc(16px * 2);
   font-size: 1.2em;
 }
 .month-spread .month-table thead th {
@@ -214,10 +221,10 @@ table th {
   padding: 0 0.03in;
 }
 .month-spread .month-table tbody tr {
-  height: calc(((1in / 6) * 4) - 1px);
+  height: calc(16px * 4);
 }
 .month-spread .month-table tbody tr.smaller {
-  height: calc(((1in / 6) * 3) - 1px);
+  height: calc(16px * 3);
 }
 .month-spread .month-table tbody td {
   border: 1px solid black;
@@ -247,32 +254,32 @@ table th {
 .page.week-spread:nth-child(even) .week-table {
   margin-left: auto;
 }
-.week-spread .week-table tbody tr {
-  height: calc(((1in / 6) * 13) - 1px);
+.week-spread .week-table tr {
+  height: calc((16px * 13));
 }
-.week-spread .week-table tbody tr.weekend {
-  height: calc(((1in / 6) * 9) - 1px);
+.week-spread .week-table tr.weekend {
+  height: calc(16px * 9);
 }
-.week-spread .week-table tbody td {
-  width: calc(((1in / 6) * 30) - 1px);
+.week-spread .week-table td {
+  width: calc(16px * 30);
   border: 1px solid black;
 }
 .week-spread .cell-header {
   font-size: 1.2em;
   font-weight: bold;
-  line-height: calc((1in / 6) * 2);
+  line-height: calc(16px * 2);
   display: flex;
   flex-direction: row;
   padding: 0 0.2em;
   background-color: white;
 }
-.week-spread .week-table tbody td .cell-header {
+.week-spread .week-table .cell-header {
   background-color: #c0c0c0;
 }
-.week-spread .week-table tbody tr.weekend td .cell-header {
+.week-spread .week-table tr.weekend .cell-header {
   background-color: #e9e9e9;
 }
-.week-spread .week-table tbody td .cell-header .day-num {
+.week-spread .week-table .cell-header .day-num {
   background-color: #555555;
   border-radius: 50%;
   width: 0.25in;
@@ -282,30 +289,33 @@ table th {
   margin-bottom: auto;
   line-height: 0.25in;
 }
-.week-spread .week-table tbody td .cell-header .day-of-week {
+.week-spread .week-table .cell-header .day-of-week {
   flex: 1;
   padding-left: 0.2em;
 }
-.week-spread .week-table tbody td .cell-content {
+.week-spread .week-table .cell-content {
   display: flex;
   font-size: 0.7em;
   font-style: italic;
   text-align: center;
-  height: calc((1in / 6) * 9.5);
+  height: calc(16px * (13 /* row height */ - 2 /* header height */ - 0.5 /* just some extra */));
 }
-.week-spread .week-table tbody td .cell-content > * {
-  flex: 1;
+.week-spread .week-table .cell-content .personal-col {
+  width: calc((16px * 13) - 2px);
 }
-.week-spread .week-table tbody td .cell-content .vertical-sep {
+.week-spread .week-table .cell-content .vertical-sep {
   min-width: 3px;
   flex: 0;
-  background: linear-gradient(to bottom, #c0c0c0 0%, #ffffff 50%);
+  background: linear-gradient(to bottom, #c0c0c0 0%, #ffffff 75%);
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
+.week-spread .week-table .cell-content .work-col {
+  flex: 1;
+}
 .week-spread .who-is-where {
   display: inline-block;
-  width: 0.5in;
+  width: calc(16px * 3);
   color: grey;
   border-left: 1px solid grey;
   font-size: 0.7em;

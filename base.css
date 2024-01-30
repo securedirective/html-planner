@@ -303,24 +303,13 @@ table th {
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
-.week-spread .goals-cell {
-  width: calc((1in / 6) * 8);
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
-}
-.week-spread .blockers-cell {
-  width: calc((1in / 6) * 8);
-  border-top: 1px dashed black;
-}
-.week-spread .moments-cell {
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
-}
 .week-spread .who-is-where {
   display: inline-block;
   width: 0.5in;
   color: grey;
   border-left: 1px solid grey;
+  font-size: 0.7em;
   font-weight: normal;
+  font-style: italic;
   padding-left: 3px;
 }
